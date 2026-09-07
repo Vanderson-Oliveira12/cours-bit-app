@@ -1,4 +1,4 @@
-import { authTree } from '@features/auth/auth.route';
+import { authTree } from '@/features/auth/auth.route';
 import {
   createRootRoute,
   createRoute,

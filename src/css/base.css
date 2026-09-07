@@ -1,0 +1,87 @@
+@layer base {
+  html {
+    @apply font-sans text-gray-900;
+  }
+
+  body {
+    @apply bg-gray-50 text-body-sm text-gray-900;
+  }
+
+  h1 {
+    @apply text-heading-3 text-gray-900;
+  }
+
+  h2 {
+    @apply text-heading-4 text-gray-900;
+  }
+
+  h3 {
+    @apply text-body-lg font-semibold text-gray-900;
+  }
+
+  h4 {
+    @apply text-body font-semibold text-gray-900;
+  }
+
+  p {
+    @apply text-body-sm text-gray-600;
+  }
+
+  small {
+    @apply text-caption text-gray-500;
+  }
+
+  label {
+    @apply text-label text-gray-700;
+  }
+
+  a {
+    @apply text-primary;
+  }
+
+  strong {
+    @apply font-semibold text-gray-900;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply text-body-sm text-gray-900;
+  }
+
+  button {
+    @apply text-button;
+  }
+
+  @media (width >= 48rem) {
+    body {
+      @apply text-body;
+    }
+
+    h1 {
+      @apply text-heading-1;
+    }
+
+    h2 {
+      @apply text-heading-2;
+    }
+
+    h3 {
+      @apply text-heading-3;
+    }
+
+    h4 {
+      @apply text-heading-4;
+    }
+
+    p {
+      @apply text-body;
+    }
+
+    input,
+    textarea,
+    select {
+      @apply text-body;
+    }
+  }
+}
