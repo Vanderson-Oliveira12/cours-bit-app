@@ -1,7 +1,7 @@
 import Logo from '@/shared/components/logo';
 import FormContainer from '../components/FormContainer';
 import { Link } from '@tanstack/react-router';
-import { Button } from '@/shared/components/button';
+import LoginForm from '../forms/LoginForm';
 
 export default function LoginPage() {
   return (
@@ -19,13 +19,7 @@ export default function LoginPage() {
         </p>
       </div>
 
-      <Button className="w-full">Olá mundo</Button>
-
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus non saepe placeat
-        laboriosam nobis dolor quibusdam. Exercitationem aliquid quia rerum necessitatibus
-        perspiciatis architecto numquam. Ab, quisquam ut. Laudantium, soluta expedita?
-      </p>
+      <LoginForm />
     </FormContainer>
   );
 }

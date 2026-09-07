@@ -121,7 +121,7 @@ type ButtonProps = React.ComponentProps<'button'> &
 function Button({
   className,
   variant = 'default',
-  size = 'default',
+  size = 'lg',
   fullWidth = false,
   asChild = false,
 

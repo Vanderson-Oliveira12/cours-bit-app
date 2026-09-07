@@ -6,6 +6,7 @@ export default function FormContainer(props: Props) {
       className="
         w-full
         max-w-97
+        my-14
         "
       {...props}
     />

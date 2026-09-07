@@ -5,9 +5,16 @@ import { controlVariants } from '@/shared/lib/control-variants';
 import { cn } from '@/shared/lib/utils';
 
 type InputProps = Omit<React.ComponentProps<'input'>, 'size'> &
-  VariantProps<typeof controlVariants> & { htmlSize?: number; };
+  VariantProps<typeof controlVariants> & { htmlSize?: number };
 
-function Input({ className, type, variant = 'default', size = 'default', htmlSize, ...props }: InputProps) {
+function Input({
+  className,
+  type,
+  variant = 'default',
+  size = 'lg',
+  htmlSize,
+  ...props
+}: InputProps) {
   return (
     <input
       type={type}
