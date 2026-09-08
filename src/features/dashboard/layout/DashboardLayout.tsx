@@ -21,7 +21,7 @@ function DashboardContent() {
     <div
       className={cn(
         'grid h-dvh overflow-x-hidden transition-[grid-template-columns] duration-300',
-        opened ? 'grid-cols-[280px_1fr]' : 'grid-cols-[72px_1fr]',
+        opened ? 'lg:grid-cols-[280px_1fr]' : 'lg:grid-cols-[72px_1fr]',
       )}
     >
       <AppAside />

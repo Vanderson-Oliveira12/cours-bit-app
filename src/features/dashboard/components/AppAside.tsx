@@ -9,31 +9,46 @@ import { cn } from '@/shared/lib/utils';
 import { MENUS, SETTINGS_MENUS, type MenuProp } from '../constants/menus.constant';
 import { useIsMobile } from '@/shared/hooks/use-breakpoint';
 import { useAside } from '../providers/AsideProvider';
+import AppToggleAside from './AppToggleAside';
 
 export default function AppAside() {
-  const { opened } = useAside();
+  const { opened, toggle } = useAside();
   const isMobile = useIsMobile();
 
   return (
     <>
-      {isMobile && (
-        <div className="absolute top-0 left-0 w-dvw bg-black z-50 h-dvh opacity-50"></div>
-      )}
+      <div
+        aria-hidden="true"
+        onClick={toggle}
+        className={cn(
+          'fixed inset-0 z-40 bg-black transition-opacity duration-300 lg:hidden',
+          opened ? 'pointer-events-auto opacity-50' : 'pointer-events-none opacity-0',
+        )}
+      />
 
       <aside
         id="app-sidebar"
         aria-label="Menu lateral"
         className={cn(
-          'sticky top-0 left-0 flex h-dvh flex-col overflow-hidden border-r border-gray-200 bg-white py-6 shadow-sm',
-          'z-50',
-          'transition-all duration-300',
-          opened ? 'px-4' : 'px-3',
+          'fixed inset-y-0 left-0 z-50 flex h-dvh w-[70%] max-w-70 flex-col',
+          'overflow-hidden border-r border-gray-200 bg-white py-6 shadow-sm',
+
+          'transform transition-transform duration-300 ease-in-out',
+
+          opened ? 'translate-x-0 px-4' : '-translate-x-full px-3',
+
+          'lg:sticky lg:w-auto lg:max-w-none lg:translate-x-0',
         )}
       >
         <div
-          className={cn('flex min-h-8 items-center', opened ? 'justify-start' : 'justify-center')}
+          className={cn(
+            'flex min-h-8 items-center relative',
+            opened ? 'justify-start' : 'justify-center',
+          )}
         >
           <Logo />
+
+          {isMobile && <AppToggleAside className="absolute right-0" />}
         </div>
 
         <nav
@@ -88,6 +103,9 @@ type AppAsideItemProps = {
 };
 
 function AppAsideItem({ menu, isOpen }: AppAsideItemProps) {
+  const isMobile = useIsMobile();
+  const { toggle } = useAside();
+
   return (
     <Button
       asChild
@@ -100,6 +118,10 @@ function AppAsideItem({ menu, isOpen }: AppAsideItemProps) {
         title={!isOpen ? menu.label : undefined}
         activeOptions={{
           exact: menu.index,
+        }}
+        onClick={() => {
+          if (!isMobile) return;
+          toggle();
         }}
         className={cn(
           'flex h-9 w-full items-center rounded-md bg-transparent text-gray-600 transition-colors',

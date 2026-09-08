@@ -1,20 +1,25 @@
-import { User } from 'lucide-react';
-
+import { PanelLeftClose, PanelLeftOpen } from 'lucide-react';
+import { useAside } from '../providers/AsideProvider';
 import { Button } from '@/shared/components/button';
-import AppToggleAside from './AppToggleAside';
 
-export default function AppNav() {
+export default function AppToggleAside({ className }: { className?: string }) {
+  const { opened, toggle } = useAside();
+
   return (
-    <nav
-      aria-label="Barra superior"
-      className="sticky top-0 left-0 z-20 flex h-14 items-center justify-between border-b border-gray-200 bg-white px-4"
+    <NavButton
+      onClick={toggle}
+      aria-controls="app-sidebar"
+      aria-expanded={opened}
+      aria-label={opened ? 'Recolher menu lateral' : 'Expandir menu lateral'}
+      title={opened ? 'Recolher menu' : 'Expandir menu'}
+      className={className}
     >
-      <AppToggleAside />
-
-      <NavButton aria-label="Abrir perfil" title="Perfil">
-        <User size={18} aria-hidden="true" />
-      </NavButton>
-    </nav>
+      {opened ? (
+        <PanelLeftClose size={18} aria-hidden="true" />
+      ) : (
+        <PanelLeftOpen size={18} aria-hidden="true" />
+      )}
+    </NavButton>
   );
 }
 
