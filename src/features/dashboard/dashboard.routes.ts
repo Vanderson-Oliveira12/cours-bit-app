@@ -14,7 +14,7 @@ const dashboardRoute = createRoute({
 });
 
 const overviewRoute = createRoute({
-  path: 'overview',
+  path: '/',
   component: OverviewPage,
   getParentRoute: () => dashboardRoute,
 });
