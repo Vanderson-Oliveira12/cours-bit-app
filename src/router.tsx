@@ -7,6 +7,7 @@ import {
   redirect,
 } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
+import { dashboardTree } from './features/dashboard/dashboard.routes';
 
 function RootLayout() {
   return (
@@ -36,7 +37,7 @@ const indexRoute = createRoute({
   },
 });
 
-const routeTree = rootRoute.addChildren([indexRoute, authTree]);
+const routeTree = rootRoute.addChildren([indexRoute, authTree, dashboardTree]);
 
 export const router = createRouter({
   routeTree,
