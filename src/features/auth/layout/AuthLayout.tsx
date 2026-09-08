@@ -20,7 +20,7 @@ export default function AuthLayout() {
           <Logo />
 
           <div className="max-w-md space-y-4">
-            <h1 className="text-heading-1 font-medium text-white">
+            <h1 className="text-heading-1 font-normal text-white">
               Desenvolva suas habilidades com a CoursBit.
             </h1>
 
