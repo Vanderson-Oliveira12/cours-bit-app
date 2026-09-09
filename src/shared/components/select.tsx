@@ -27,7 +27,7 @@ type SelectTriggerProps = React.ComponentProps<typeof SelectPrimitive.Trigger> &
 
 function SelectTrigger({
   className,
-  size = 'default',
+  size = 'lg',
   variant = 'default',
   children,
   ...props

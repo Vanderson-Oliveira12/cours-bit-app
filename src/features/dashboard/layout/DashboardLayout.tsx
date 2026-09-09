@@ -37,7 +37,7 @@ function DashboardContent() {
         </div>
       </div>
 
-      <UserOverviewDrawer isOpen />
+      {/* <UserOverviewDrawer isOpen /> */}
     </>
   );
 }
