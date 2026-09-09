@@ -8,7 +8,6 @@ import { cn } from '@/shared/lib/utils';
 const buttonVariants = cva(
   [
     'inline-flex shrink-0 items-center justify-center gap-2',
-    'rounded-lg',
     'text-button whitespace-nowrap',
     'outline-none',
     'transition-[background-color,color,border-color,box-shadow,opacity]',
@@ -99,12 +98,18 @@ const buttonVariants = cva(
         true: 'w-full',
         false: '',
       },
+
+      rounded: {
+        default: 'rounded-lg',
+        full: 'rounded-full',
+      },
     },
 
     defaultVariants: {
       variant: 'default',
       size: 'default',
       fullWidth: false,
+      rounded: 'default',
     },
   },
 );
@@ -121,6 +126,7 @@ type ButtonProps = React.ComponentProps<'button'> &
 function Button({
   className,
   variant = 'default',
+  rounded = 'default',
   size = 'lg',
   fullWidth = false,
   asChild = false,
@@ -169,6 +175,7 @@ function Button({
           variant,
           size,
           fullWidth,
+          rounded,
         }),
         className,
       )}

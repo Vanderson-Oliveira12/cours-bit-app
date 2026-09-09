@@ -1,7 +1,5 @@
-import { User } from 'lucide-react';
-
-import { Button } from '@/shared/components/button';
 import AppToggleAside from './AppToggleAside';
+import UserExperience from './UserExperience';
 
 export default function AppNav() {
   return (
@@ -11,33 +9,7 @@ export default function AppNav() {
     >
       <AppToggleAside />
 
-      <NavButton aria-label="Abrir perfil" title="Perfil">
-        <User size={18} aria-hidden="true" />
-      </NavButton>
+      <UserExperience />
     </nav>
-  );
-}
-
-type NavButtonProps = React.ComponentProps<typeof Button>;
-
-function NavButton({ children, className, ...props }: NavButtonProps) {
-  return (
-    <Button
-      type="button"
-      variant="ghost"
-      size="xs"
-      className={[
-        'size-9 cursor-pointer rounded-md bg-transparent p-0 text-gray-600',
-        'hover:bg-gray-100 hover:text-gray-900',
-        'active:bg-gray-200',
-        'focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
-        className,
-      ]
-        .filter(Boolean)
-        .join(' ')}
-      {...props}
-    >
-      {children}
-    </Button>
   );
 }

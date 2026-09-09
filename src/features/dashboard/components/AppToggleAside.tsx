@@ -15,9 +15,9 @@ export default function AppToggleAside({ className }: { className?: string }) {
       className={className}
     >
       {opened ? (
-        <PanelLeftClose size={18} aria-hidden="true" />
+        <PanelLeftClose className="size-6" aria-hidden="true" />
       ) : (
-        <PanelLeftOpen size={18} aria-hidden="true" />
+        <PanelLeftOpen className="size-6" aria-hidden="true" />
       )}
     </NavButton>
   );
